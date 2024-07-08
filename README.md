@@ -3,7 +3,7 @@
 <div align="center">
     <img src="public/demo/TikTok_logo.svg.png" alt="Logo">
 
-<h3 align="center">TikTokMask</h3>
+<h3 align="center">SafeStream: ResponsibleAI for Personalized Content Filtering - Backend</h3>
 
   <p align="center">
     An awesome short video sharing application 🎬🎥🎞️👋⚡🔥
@@ -26,8 +26,6 @@
       </ul>
     </li>
     <li><a href="#getting-started">Getting Started</a></li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -38,8 +36,8 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-![product-screenshot](./public/demo/feed.png)
+![product-screenshot](./public/assets/After%20Integration%20of%20SafeStream.png)
+![product-screenshot](./public/assets/Integrating%20SafeStream.png)
 
 ### Built With
 [![Next.js shield][nextjs-shield]][nextjs-url]                  
@@ -64,52 +62,6 @@ To run the application on your local machine, follow these steps:
 - Start the application using npm run dev.
 - You will need to have Node.js installed on your local machine to run the application.
 - If you find any difficulties , please [contact](#contact) me.
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-🚀 Our application is currently deployed and available for use. To access the application, please follow the steps below:
-
-### 🙋‍♀️ Signin with google  or github or with credentials and upload profile photo and create a username.
-
-![signin](./public/demo/auth.png)
-
-### 💬 you can start using the application by uploading a new reel or enjoying the feed.
-
-![create post](./public/demo/feed.png)
-
-![subreddit-page](./public/demo/upload.png)
-
-### like and comment on TikTok Mask.
-
-![like-comment](./public/demo/likeComment.png)
-
-### dark theme support
-![dark-theme](./public/demo/brandbird.png)
-
-### profile section to track of you uploads
-![profile](./public/demo/profile.png)
-### 📧 If you have any issues or questions about the application, please reach out to me at [email].
-
-🎉 Thank you for using our application! We hope you enjoy your experience.
-<p align="right">(<a href="#readme">back to top</a>)</p>
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [x] authenticate users
-    - [x] signin
-        - [x] google
-        - [x] credentials
-        - [x] github
-    - [x] logout
-- [ ] post
-    - [x] video
-    - [x] make thumbnail
-    - [x] upload thumbnail
-        - [x] like
-        - [x] comment
 
 <p align="right">(<a href="#readme">back to top</a>)</p>
 
