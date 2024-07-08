@@ -50,6 +50,7 @@ interface PublishWizardProps {
   uploading: boolean;
   downloadVideoUrl: string;
   videoName: string;
+  jsonTag: string;
   progress: number;
 }
 const Page: React.FC<PublishWizardProps> = ({
@@ -60,6 +61,7 @@ const Page: React.FC<PublishWizardProps> = ({
   uploading,
   downloadVideoUrl,
   videoName,
+  jsonTag,
   progress,
 }) => {
   const [data, setData] = useState(INITAL_DATA);
@@ -95,6 +97,7 @@ const Page: React.FC<PublishWizardProps> = ({
       videoRef={videoRef}
       setFrmaeZUrl={setFrameZUrl}
       videoName={videoName}
+      jsonTag={jsonTag}
       progress={progress}
     />,
     <VideoThumbnailForm
@@ -142,7 +145,7 @@ const Page: React.FC<PublishWizardProps> = ({
             visibility: data.visibility,
             tags: data.tags,
             code: data.code,
-            jsonTags: {},
+            jsonTag: jsonTag,
             textSummar: "",
           };
           await setDoc(doc(db, "posts", postId), postDoc);

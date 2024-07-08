@@ -45,6 +45,9 @@ import toast from "react-hot-toast";
 import CommentBox from "./CommentBox";
 import Link from "next/link";
 
+import FullPageMask from './MaskComponent';
+import { faL } from "@fortawesome/free-solid-svg-icons";
+
 interface VideoElementProps {
   post: DocumentData & { id: string };
   rootref: RefObject<HTMLDivElement>;
@@ -80,6 +83,47 @@ const VideoElement: React.FC<VideoElementProps> = ({
   const [isFollowing, setIsFollowing] = useState(false);
   const [followDoc, setFollowDoc] = useState<DocumentData | null>(null);
   const [commentBoxOpen, setCommentBoxOpen] = useState(false);
+  const [showMask, setShowMask] = useState(true); 
+
+  // Have a full page mask component
+
+// {
+  // "contentPreferences": {
+  //   "hateSpeech": {
+  //     "enabled": true,
+  //     "subCategories": {
+  //       "homophobia": false,
+  //       "otherHateSpeech": false,
+  //       "racism": false,
+  //       "sexism": false,
+  //       "transphobia": false,
+  //       "xenophobia": false
+  //     }
+  //   },
+
+  function compareNestedKeys(json1: string, json2: string) {
+    var obj1 = JSON.parse(json1);
+    var obj2 = JSON.parse(json2);
+    // obj1 = obj1["contentPreferences"];
+    obj2 = obj2["contentPreferences"];
+    console.log("obj1", obj1);
+    console.log("obj2", obj2);
+    for (var key in obj1) {
+      console.log("key", key);
+      var d1 = obj1[key];
+      var d2 = obj2[key];
+      for (var k in d1["subCategories"]) {
+        if (d1["subCategories"][k]==true) {
+          if (d2["subCategories"][k]==true) {
+            console.log("k", k, d1["subCategories"][k], d2["subCategories"][k]);
+            console.log("true for ", key, k);
+            return true;
+          }
+        }
+      }
+    }
+    return false;
+  };
 
   const playVideo = () => {
     console.log("PlayVideo called--", post.id);
@@ -163,6 +207,7 @@ const VideoElement: React.FC<VideoElementProps> = ({
     };
     setFollowing();
   }, [IsFollowLoading, isActive]);
+
 
   const handleClick = () => {
     if (!isActive) return;
@@ -256,12 +301,27 @@ const VideoElement: React.FC<VideoElementProps> = ({
       setIsFollowLoading(false);
     }
   };
+
+  useEffect(() => {
+    console.log("VERDICT: ", post.postTitle, " ", compareNestedKeys(user.jsonTag, post.jsonTag));
+
+    // Example logic to toggle showMask based on video playback state
+    if (compareNestedKeys(user.jsonTag, post.jsonTag)) {
+      console.log("mask for ", post.id, post.postTitle, post.jsonTag);
+      setShowMask(true); // Hide FullPageMask when video is playing
+    } else {
+      setShowMask(false); // Show FullPageMask when video is paused or inactive
+    }
+  }, [isActive]);
+
   return (
     <div ref={reference} className="h-full flex justify-center space-x-1">
+
       <div
         className="video-wrapper relative flex justify-center items-center overflow-hidden h-full w-[335px]  dark:bg-systemGrayDark-300 bg-slate-50 rounded-xl bg-center bg-cover bg-no-repeat"
         style={{ backgroundImage: `url(${post.postThumbnailUrl})` }}
       >
+        {isActive && showMask && <FullPageMask showMask={showMask} onClose={setShowMask} />}
         {isActive ? (
           <video
             src={post.postVideoUrl}

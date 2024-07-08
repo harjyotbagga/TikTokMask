@@ -17,6 +17,7 @@ type VideoDetailsProps = {
   videoRef: MutableRefObject<HTMLVideoElement | null>;
   setFrmaeZUrl:  Dispatch<SetStateAction<string>>;
   videoName: string;
+  jsonTag: string;
   progress: number;
 
 };
@@ -29,8 +30,10 @@ const VideoDetailsForm: React.FC<VideoDetailsFormProps & VideoDetailsProps> = ({
   videoRef,
   setFrmaeZUrl,
   videoName,
+  jsonTag,
   progress,
 }) => {
+  console.log("jsonTag",jsonTag);
   return (
     <FormWrapper title="Details">
       <div className="w-full flex py-2">
@@ -75,7 +78,6 @@ const VideoDetailsForm: React.FC<VideoDetailsFormProps & VideoDetailsProps> = ({
               className="w-full h-full object-contain"
             ></video>
           </div>
-
           <div className="flex w-full border border-systemSepDark-sep rounded-md items-center space-x-1 ">
             <FilmIcon className="w-12 h-12 p-1 text-systemTintDark-blue" />
             <div className="flex-1 space-y-2 p-2 text-systemLbLight-400 dark:text-systemLbDark-400">

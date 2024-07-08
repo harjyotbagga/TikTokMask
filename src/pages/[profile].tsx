@@ -29,6 +29,7 @@ import {
   SpeakerXMarkIcon,
 } from "@heroicons/react/24/solid";
 import PostsList from "@/components/PostsList";
+import PreferencesComponent from "@/components/PreferencesComponent";
 import useVideoPlayer from "@/hooks/useVideoPlayerDev";
 import {
   ArrowDownTrayIcon,
@@ -331,6 +332,7 @@ const Profile: React.FC<ProfileProps> = ({}) => {
               </div>
             </div>
           </div>
+          <PreferencesComponent userId={profileData?.userId} />
           <PostsList
             profileId={profileData?.userId}
             onPostClick={onPostClick}

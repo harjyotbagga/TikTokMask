@@ -26,6 +26,7 @@ const Upload: React.FC<uploadProps> = ({}) => {
   const [postId, setPostId] = useState("");
   const [uploading, setUploading] = useState(false);
   const [videoName, setVideoName] = useState("");
+  const [jsonTag, setJsonTag] = useState("");
   const [progress, setProgress] = useState(0);
   const [downloadVideoUrl, setDownloadVideoUrl] = useState("");
   const [animationCompleted, setAnimationCompleted] = useState(false);
@@ -80,9 +81,30 @@ const Upload: React.FC<uploadProps> = ({}) => {
           );
           console.log(videoDownloadUrl);
           setDownloadVideoUrl(videoDownloadUrl);
-          toast.success("video uploaded");
-        }
-      );
+
+          var request_body = {
+            "url": videoDownloadUrl,
+          };
+          fetch('http://127.0.0.1:5000/upload', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(request_body)
+            })
+            .then(response => response.json()) // Convert the response to JSON
+            .then(data => {
+              setJsonTag(JSON.stringify(data));
+              console.log(data); // Log the response data
+            })
+            .catch(error => {
+              console.error('Error:', error); // Log any errors
+            });
+            toast.success("video uploaded");
+
+          }
+        );
+      
       // uploadBytes(post_ref, video).then(async (snapshot) => {
       //   console.log("uploaded");
       //   const videoDownloadUrl = await getDownloadURL(uploadTask.snapshot.ref);
@@ -167,6 +189,7 @@ const Upload: React.FC<uploadProps> = ({}) => {
               postId={postId}
               downloadVideoUrl={downloadVideoUrl}
               videoName={videoName}
+              jsonTag={jsonTag}
               progress={progress}
             />
           ) : (

@@ -82,6 +82,75 @@ export const AuthProvider: React.FC<ProviderProps> = ({ children }) => {
         // ...
         const userRef = doc(db, "users", user.uid);
         const docsnap = await getDoc(userRef);
+        const initialPreferences = {
+          politicalContent: {
+            enabled: true,
+            subCategories: {
+              leftWing: false,
+              rightWing: false,
+              centrism: false,
+              extremism: false,
+              electionCoverage: false,
+              politicalDebates: false,
+            },
+          },
+          sexualityAndGenderIssues: {
+            enabled: true,
+            subCategories: {
+              lgbtq: false,
+              genderIdentity: false,
+              sexualHealth: false,
+              feminism: false,
+              sexEducation: false,
+              relationshipAdvice: false,
+            },
+          },
+          offensiveContent: {
+            enabled: true,
+            subCategories: {
+              profanity: false,
+              graphicContent: false,
+              disturbingImages: false,
+              offensiveJokes: false,
+              hateSpeech: false,
+              insensitiveComments: false,
+            },
+          },
+          religiousContent: {
+            enabled: true,
+            subCategories: {
+              christianity: true,
+              islam: true,
+              hinduism: true,
+              buddhism: false,
+              atheism: false,
+              interfaithDialogues: true,
+            },
+          },
+          racialContent: {
+            enabled: true,
+            subCategories: {
+              racialEquality: false,
+              racialDiscrimination: false,
+              culturalAppropriation: false,
+              racialHistory: true,
+              racistRemarks: false,
+            },
+          },
+          hateSpeech: {
+            enabled: true,
+            subCategories: {
+              racism: false,
+              sexism: false,
+              homophobia: false,
+              transphobia: false,
+              xenophobia: false,
+              otherHateSpeech: false,
+            },
+          },
+        };        
+
+
         if (!docsnap.exists()) {
           const { email, photoURL, uid, displayName } = user;
           const userDoc = {
@@ -91,6 +160,7 @@ export const AuthProvider: React.FC<ProviderProps> = ({ children }) => {
             profile_picture_url: photoURL,
             userId: uid,
             posts: [],
+            jsonTag: JSON.stringify(initialPreferences),
           };
           await setDoc(doc(db, "users", uid), userDoc);
         }
