@@ -1,23 +1,16 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://reels-pink.vercel.app/">
-    <img src="public/assets/reels_mark_colored.svg" alt="Logo" width="80" height="80">
-  </a>
+    <img src="public/demo/TikTok_logo.svg.png" alt="Logo">
 
-<h3 align="center">reels 2.0</h3>
+<h3 align="center">TikTokMask</h3>
 
   <p align="center">
     An awesome short video sharing application 🎬🎥🎞️👋⚡🔥
     <br />
-    <a href="https://github.com/KRISHNAGK9964/reddit/tree/main/src/firebase"><strong>Backend firebase setup»</strong></a>
+    <strong>Backend firebase setup»</strong>
     <br />
     <br />
-    <a href="https://github.com/KRISHNAGK9964/Reels">View Demo</a>
-    ·
-    <a href="https://github.com/KRISHNAGK9964/Reels/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/KRISHNAGK9964/Reels/issues">Request Feature</a>
   </p>
 </div>
 
@@ -49,17 +42,11 @@
 ![product-screenshot](./public/demo/feed.png)
 
 ### Built With
-
-| Client                                                           |                                               Server |
-|------------------------------------------------------------------|------------------------------------------------------|
-|  [![Next.js shield][nextjs-shield]][nextjs-url]                  | [![Firebase shield][Firebase-shield]][Firebase-url]  |
-|  [![Tailwind CSS shield][tailwind-css-shield]][tailwind-css-url] | [![Framer shield][Framer-shield]][Framer-url]        |
-|  [![TypeScript shield][typescript-shield]][typescript-url]       |                                                      |
-
-
-
-
-
+[![Next.js shield][nextjs-shield]][nextjs-url]                  
+[![Firebase shield][Firebase-shield]][Firebase-url]
+[![Tailwind CSS shield][tailwind-css-shield]][tailwind-css-url]
+[![Framer shield][Framer-shield]][Framer-url]
+[![TypeScript shield][typescript-shield]][typescript-url]
 
 <p align="right">(<a href="#readme">back to top</a>)</p>
 
@@ -82,8 +69,6 @@ To run the application on your local machine, follow these steps:
 ## Usage
 
 🚀 Our application is currently deployed and available for use. To access the application, please follow the steps below:
-
-### 🌐 Go to [reels-clone].
 
 ### 🙋‍♀️ Signin with google  or github or with credentials and upload profile photo and create a username.
 
@@ -125,8 +110,6 @@ To run the application on your local machine, follow these steps:
     - [x] upload thumbnail
         - [x] like
         - [x] comment
-        
-See the [open issues](https://github.com/KRISHNAGK9964/Reels/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme">back to top</a>)</p>
 
@@ -149,20 +132,6 @@ Don't forget to give the project a star! Thanks again!
 <p align="right">(<a href="#readme">back to top</a>)</p>
 
 
-<!-- CONTACT -->
-## Contact
-
-Krishna -  [email](email)
-
-Project Links: 
-| frontend | backend |
-| -------- | ------- |
-|[https://github.com/KRISHNAGK9964/Reels](reels) | [https://github.com/KRISHNAGK9964/reddit/tree/main/src/firebase](reels)|
-
-<p align="right">(<a href="#readme">back to top</a>)</p>
-
-
-
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
@@ -171,6 +140,7 @@ Project Links:
 * [Firebase docs](https://firebase.google.com/docs)
 * [FramermotionPlaygroud](https://framermotionplayground.com/)
 * [typescript cheatsheet](https://react-typescript-cheatsheet.netlify.app/docs/basic/setup)
+* [KRISHNAGK for the Frontend UI](https://github.com/krishna-kudari)
 
 <p align="right">(<a href="#readme">back to top</a>)</p>
 
@@ -195,15 +165,6 @@ Project Links:
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
-
-[chatService]: https://github.com/KRISHNAGK9964/chatService
-[imessage]: https://imessage-inky.vercel.app/
-[email]: Kkrishna22572@gmail.com
-[reddit-clone]: https://reddit-lime.vercel.app/
-[reddit]: https://github.com/KRISHNAGK9964/reddit/
-[backend]: https://github.com/KRISHNAGK9964/reddit/tree/main/stepzen
-[reels-clone]: https://reels-pink.vercel.app/
-[reels]: https://github.com/KRISHNAGK9964/Reels/
 
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
