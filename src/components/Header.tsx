@@ -20,7 +20,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
               alt={"🎬🎞️"}
             />
           </div>
-          <p className="font-bold text-xl text-slate-900 ">reels</p>
+          <p className="font-bold text-xl text-slate-900 ">TikTok</p>
         </div>
         <HomeIcon className="h-8 w-8  text-gray-900" />
       </div>

@@ -80,7 +80,7 @@ To run the application on your local machine, follow these steps:
 
 ![subreddit-page](./public/demo/upload.png)
 
-### like and comment on reels.
+### like and comment on TikTok Mask.
 
 ![like-comment](./public/demo/likeComment.png)
 

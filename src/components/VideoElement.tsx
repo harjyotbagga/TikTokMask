@@ -46,7 +46,6 @@ import CommentBox from "./CommentBox";
 import Link from "next/link";
 
 import FullPageMask from './MaskComponent';
-import { faL } from "@fortawesome/free-solid-svg-icons";
 
 interface VideoElementProps {
   post: DocumentData & { id: string };
@@ -84,6 +83,7 @@ const VideoElement: React.FC<VideoElementProps> = ({
   const [followDoc, setFollowDoc] = useState<DocumentData | null>(null);
   const [commentBoxOpen, setCommentBoxOpen] = useState(false);
   const [showMask, setShowMask] = useState(true); 
+  const [maskReason, setMaskReason] = useState("");
 
   // Have a full page mask component
 
@@ -114,6 +114,7 @@ const VideoElement: React.FC<VideoElementProps> = ({
           if (d2["subCategories"][k]==true) {
             console.log("k", k, d1["subCategories"][k], d2["subCategories"][k]);
             console.log("true for ", key, k);
+            setMaskReason(key);
             return true;
           }
         }
@@ -319,10 +320,10 @@ const VideoElement: React.FC<VideoElementProps> = ({
     <div ref={reference} className="h-full flex justify-center space-x-1">
 
       <div
-        className="video-wrapper relative flex justify-center items-center overflow-hidden h-full w-[335px]  dark:bg-systemGrayDark-300 bg-slate-50 rounded-xl bg-center bg-cover bg-no-repeat"
+        className="video-wrapper relative flex justify-center items-center overflow-hidden h-full w-[350px]  dark:bg-systemGrayDark-300 bg-slate-50 rounded-xl bg-center bg-cover bg-no-repeat"
         style={{ backgroundImage: `url(${post.postThumbnailUrl})` }}
       >
-        {isActive && showMask && <FullPageMask showMask={showMask} onClose={setShowMask} />}
+        {isActive && showMask && <FullPageMask showMask={showMask} onClose={setShowMask} reason={maskReason} />}
         {isActive ? (
           <video
             src={post.postVideoUrl}
@@ -335,7 +336,7 @@ const VideoElement: React.FC<VideoElementProps> = ({
             onTimeUpdate={() => {
               isActive && handleOnTimeUpdate();
             }}
-            className="h-full w-[335px] pointer-events-none object-cover object-center border border-gray-200 rounded-lg dark:border-gray-700"
+            className="h-full w-[350px] pointer-events-none object-cover object-center border border-gray-200 rounded-lg dark:border-gray-700"
           />
         ) : (
           <img

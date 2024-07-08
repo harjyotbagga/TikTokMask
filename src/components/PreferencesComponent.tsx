@@ -118,8 +118,9 @@ const PreferencesComponent: React.FC<PreferencesComponentProps> = ({user, setPro
     // Save preferences in json
     console.log('Preferences saved:', JSON.stringify(preferences));
 
+    const projectId = process.env.NEXT_PUBLIC_projectId;
     // Send a patch request
-    fetch(`https://firestore.googleapis.com/v1/projects/tiktok-proj-a3304/databases/(default)/documents/users/${user.userId}?updateMask.fieldPaths=jsonTag`, {
+    fetch(`https://firestore.googleapis.com/v1/projects/${projectId}/databases/(default)/documents/users/${user.userId}?updateMask.fieldPaths=jsonTag`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -154,7 +155,7 @@ const PreferencesComponent: React.FC<PreferencesComponentProps> = ({user, setPro
             {category}
           </label>
           {preferences[category].enabled && (
-            <div style={{ paddingLeft: '20px', textAlign: 'center', padding: '10px' }}>
+            <div style={{ paddingLeft: '20px', textAlign: 'left', padding: '10px' }}>
               {Object.keys(preferences[category].subCategories).map((subCategory) => (
                 <label key={subCategory} style={{ padding: '10px'}}>
                   <input

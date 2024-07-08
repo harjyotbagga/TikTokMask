@@ -206,7 +206,7 @@ const Profile: React.FC<ProfileProps> = ({}) => {
               />
             </div>
             <p className="hidden sm:block font-bold text-xl text-slate-900 dark:text-systemLbDark-400">
-              reels
+              TikTok
             </p>
           </div>
         </div>
@@ -346,7 +346,7 @@ const Profile: React.FC<ProfileProps> = ({}) => {
               >
                 <div
                   onClick={togglePlay}
-                  className="video-wrapper relative flex justify-center items-center overflow-hidden h-full w-[335px]  dark:bg-gray-600 bg-slate-50 rounded-xl bg-center bg-cover bg-no-repeat"
+                  className="video-wrapper relative flex justify-center items-center overflow-hidden h-full w-[350px]  dark:bg-gray-600 bg-slate-50 rounded-xl bg-center bg-cover bg-no-repeat"
                   style={{
                     backgroundImage: `url(${selectedPost.postThumbnailUrl})`,
                   }}
@@ -362,7 +362,7 @@ const Profile: React.FC<ProfileProps> = ({}) => {
                     onTimeUpdate={() => {
                       handleOnTimeUpdate();
                     }}
-                    className="h-full w-[335px] pointer-events-none object-cover object-center  rounded-lg"
+                    className="h-full w-[350px] pointer-events-none object-cover object-center  rounded-lg"
                   />
 
                   <div className="opacity-0 hover:opacity-100 absolute z-20 bg-gradient-to-t bg-opacity-5 from-gray-900 via-transparent to-transparent w-full h-full">

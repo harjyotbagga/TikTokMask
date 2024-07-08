@@ -124,7 +124,7 @@ export default function Home() {
               />
             </div>
             <p className="hidden sm:block font-bold text-xl text-slate-900 dark:text-systemLbDark-400">
-              reels
+              TikTok
             </p>
           </div>
         </div>

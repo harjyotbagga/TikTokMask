@@ -178,7 +178,7 @@ const Signin: React.FC<signinProps> = ({}) => {
               />
             </div>
             <p className="font-bold text-xl text-slate-900 dark:text-systemLbDark-400">
-              reels
+              TikTok
             </p>
           </div>
           <div>{/* <Image src={""} alt={""} /> */}</div>
