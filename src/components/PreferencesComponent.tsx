@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import {
+  DocumentData,
+} from "firebase/firestore";
 
 interface ContentPreferences {
   enabled: boolean;
@@ -8,7 +11,8 @@ interface ContentPreferences {
 }
 
 interface PreferencesComponentProps {
-    userId: string;
+    user: DocumentData,
+    setProfileData: any;
 }
 
 interface Preferences {
@@ -83,8 +87,9 @@ const initialPreferences: Preferences = {
   },
 };
 
-const PreferencesComponent: React.FC<PreferencesComponentProps> = ({userId}) => {
-  const [preferences, setPreferences] = useState(initialPreferences);
+const PreferencesComponent: React.FC<PreferencesComponentProps> = ({user, setProfileData}) => {
+  console.log(JSON.parse(user.jsonTag)) ;
+  const [preferences, setPreferences] = useState(JSON.parse(user.jsonTag));
 
   const handleCategoryChange = (category: string) => {
     setPreferences((prevPreferences) => ({
@@ -114,7 +119,7 @@ const PreferencesComponent: React.FC<PreferencesComponentProps> = ({userId}) => 
     console.log('Preferences saved:', JSON.stringify(preferences));
 
     // Send a patch request
-    fetch(`https://firestore.googleapis.com/v1/projects/tiktok-proj-a3304/databases/(default)/documents/users/${userId}?updateMask.fieldPaths=jsonTag`, {
+    fetch(`https://firestore.googleapis.com/v1/projects/tiktok-proj-a3304/databases/(default)/documents/users/${user.userId}?updateMask.fieldPaths=jsonTag`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -130,6 +135,8 @@ const PreferencesComponent: React.FC<PreferencesComponentProps> = ({userId}) => 
         console.log('Preferences saved:', res);
         }        
     )
+    user.jsonTag = JSON.stringify(preferences);
+    setProfileData(user);
 
   };
 

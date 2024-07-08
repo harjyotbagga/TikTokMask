@@ -332,7 +332,7 @@ const Profile: React.FC<ProfileProps> = ({}) => {
               </div>
             </div>
           </div>
-          <PreferencesComponent userId={profileData?.userId} />
+          <PreferencesComponent user={profileData} setProfileData={setProfileData} />
           <PostsList
             profileId={profileData?.userId}
             onPostClick={onPostClick}

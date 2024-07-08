@@ -106,10 +106,7 @@ const VideoElement: React.FC<VideoElementProps> = ({
     var obj2 = JSON.parse(json2);
     // obj1 = obj1["contentPreferences"];
     obj2 = obj2["contentPreferences"];
-    console.log("obj1", obj1);
-    console.log("obj2", obj2);
     for (var key in obj1) {
-      console.log("key", key);
       var d1 = obj1[key];
       var d2 = obj2[key];
       for (var k in d1["subCategories"]) {
@@ -303,16 +300,20 @@ const VideoElement: React.FC<VideoElementProps> = ({
   };
 
   useEffect(() => {
-    console.log("VERDICT: ", post.postTitle, " ", compareNestedKeys(user.jsonTag, post.jsonTag));
+    console.log("user", user.jsonTag);
+    console.log("post", post.jsonTag);
+    // console.log("VERDICT: ", post.postTitle, " ", compareNestedKeys(user.jsonTag, post.jsonTag));
 
     // Example logic to toggle showMask based on video playback state
     if (compareNestedKeys(user.jsonTag, post.jsonTag)) {
+      console.log("VERDICT: ", post.postTitle, " ", true);
       console.log("mask for ", post.id, post.postTitle, post.jsonTag);
       setShowMask(true); // Hide FullPageMask when video is playing
     } else {
+      console.log("VERDICT: ", post.postTitle, " ", false);
       setShowMask(false); // Show FullPageMask when video is paused or inactive
     }
-  }, [isActive]);
+  }, [isActive, user.jsonTag, post.jsonTag]);
 
   return (
     <div ref={reference} className="h-full flex justify-center space-x-1">
