@@ -119,9 +119,9 @@ export const AuthProvider: React.FC<ProviderProps> = ({ children }) => {
           religiousContent: {
             enabled: true,
             subCategories: {
-              christianity: true,
-              islam: true,
-              hinduism: true,
+              christianity: false,
+              islam: false,
+              hinduism: false,
               buddhism: false,
               atheism: false,
               interfaithDialogues: true,
@@ -133,7 +133,7 @@ export const AuthProvider: React.FC<ProviderProps> = ({ children }) => {
               racialEquality: false,
               racialDiscrimination: false,
               culturalAppropriation: false,
-              racialHistory: true,
+              racialHistory: false,
               racistRemarks: false,
             },
           },

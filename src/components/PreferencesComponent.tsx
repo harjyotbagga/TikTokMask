@@ -52,12 +52,12 @@ const initialPreferences: Preferences = {
   religiousContent: {
     enabled: true,
     subCategories: {
-      christianity: true,
-      islam: true,
-      hinduism: true,
+      christianity: false,
+      islam: false,
+      hinduism: false,
       buddhism: false,
       atheism: false,
-      interfaithDialogues: true,
+      interfaithDialogues: false,
     },
   },
   racialContent: {
@@ -66,7 +66,7 @@ const initialPreferences: Preferences = {
       racialEquality: false,
       racialDiscrimination: false,
       culturalAppropriation: false,
-      racialHistory: true,
+      racialHistory: false,
       racistRemarks: false,
     },
   },
